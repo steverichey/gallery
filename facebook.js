@@ -6,6 +6,8 @@ window.fbAsyncInit = function() {
     });
     
     
+// Check if the current user is logged in and has authorized the app
+      FB.getLoginStatus(checkLoginStatus);
 };
 
 (function(d, s, id){
@@ -16,8 +18,6 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-// Check if the current user is logged in and has authorized the app
-      FB.getLoginStatus(checkLoginStatus);
       
       // Login in the current user via Facebook and ask for email permission
       function authUser() {
