@@ -28,6 +28,7 @@ window.fbAsyncInit = function() {
           
           // Display the login button
           console.log("display the login button");
+            authUser();
         }
       }
 };
