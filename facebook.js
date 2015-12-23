@@ -30,7 +30,7 @@ window.fbAsyncInit = function() {
           //alert('User is authorized');
           
           // Hide the login button
-          document.getElementById('loginButton').style.display = 'none';
+         // document.getElementById('loginButton').style.display = 'none';
           
           // Now Personalize the User Experience
           console.log('Access Token: ' + response.authResponse.accessToken);
