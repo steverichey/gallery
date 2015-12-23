@@ -5,32 +5,31 @@ window.fbAsyncInit = function() {
         version    : 'v2.5'
     });
     
-    FB.login(function(response) {
-        console.log(response);
-    }, {scope:'read_stream'});
-    
-    /*
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            var accessToken = response.authResponse.accessToken;
-            FB.api(
-                "/me/home",
-                function (response) {
-                    if (response && !response.error) {
-                        console.log("success");
-                        console.log(response);
-                    } else {
-                        console.log("failedz");
-                        console.log(response);
-                    }
-                }
-            );
+    // Check if the current user is logged in and has authorized the app
+      FB.getLoginStatus(checkLoginStatus);
+      
+      // Login in the current user via Facebook and ask for email permission
+      function authUser() {
+        FB.login(checkLoginStatus, {scope:'email'});
+      }
+      
+      // Check the result of the user status and display login button if necessary
+      function checkLoginStatus(response) {
+        if(response && response.status == 'connected') {
+          alert('User is authorized');
+          
+          // Hide the login button
+          document.getElementById('loginButton').style.display = 'none';
+          
+          // Now Personalize the User Experience
+          console.log('Access Token: ' + response.authResponse.accessToken);
         } else {
-            console.log("failed");
-            console.log(response);
+          alert('User is not authorized');
+          
+          // Display the login button
+          console.log("display the login button");
         }
-    });
-    */
+      }
 };
 
 (function(d, s, id){
