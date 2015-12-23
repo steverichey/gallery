@@ -4,6 +4,16 @@ window.fbAsyncInit = function() {
         xfbml      : true,
         version    : 'v2.5'
     });
+    
+    /* make the API call */
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            var accessToken = response.authResponse.accessToken;
+            console.log(accessToken);
+        } else {
+            console.log(response);
+        }
+    });
 };
 
 (function(d, s, id){
