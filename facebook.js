@@ -27,7 +27,7 @@ window.fbAsyncInit = function() {
       // Check the result of the user status and display login button if necessary
       function checkLoginStatus(response) {
         if(response && response.status == 'connected') {
-          alert('User is authorized');
+          //alert('User is authorized');
           
           // Hide the login button
           document.getElementById('loginButton').style.display = 'none';
@@ -41,6 +41,10 @@ FB.api(
     function (response) {
       if (response && !response.error) {
         /* handle the result */
+          console.log("yay");
+          console.log(response);
+      } else{
+          console.log("fail");
           console.log(response);
       }
     }
