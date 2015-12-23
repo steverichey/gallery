@@ -34,6 +34,17 @@ window.fbAsyncInit = function() {
           
           // Now Personalize the User Experience
           console.log('Access Token: ' + response.authResponse.accessToken);
+            
+            /* make the API call */
+FB.api(
+    "/me/home",
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+          console.log(response);
+      }
+    }
+);
         } else {
           alert('User is not authorized');
           
