@@ -5,15 +5,32 @@ window.fbAsyncInit = function() {
         version    : 'v2.5'
     });
     
-    /* make the API call */
+    FB.login(function(response) {
+        console.log(response);
+    }, {scope:'read_stream'});
+    
+    /*
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             var accessToken = response.authResponse.accessToken;
-            console.log(accessToken);
+            FB.api(
+                "/me/home",
+                function (response) {
+                    if (response && !response.error) {
+                        console.log("success");
+                        console.log(response);
+                    } else {
+                        console.log("failedz");
+                        console.log(response);
+                    }
+                }
+            );
         } else {
+            console.log("failed");
             console.log(response);
         }
     });
+    */
 };
 
 (function(d, s, id){
