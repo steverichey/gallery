@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
       
       // Login in the current user via Facebook and ask for email permission
       function authUser() {
-        FB.login(checkLoginStatus, {scope:'email'});
+        FB.login(checkLoginStatus, {scope:'read_stream'});
       }
       
       // Check the result of the user status and display login button if necessary
