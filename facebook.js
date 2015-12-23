@@ -5,7 +5,18 @@ window.fbAsyncInit = function() {
         version    : 'v2.5'
     });
     
-    // Check if the current user is logged in and has authorized the app
+    
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Check if the current user is logged in and has authorized the app
       FB.getLoginStatus(checkLoginStatus);
       
       // Login in the current user via Facebook and ask for email permission
@@ -28,15 +39,6 @@ window.fbAsyncInit = function() {
           
           // Display the login button
           console.log("display the login button");
-            authUser();
+            document.getElementById('loginButton').style.display = 'block';
         }
       }
-};
-
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
